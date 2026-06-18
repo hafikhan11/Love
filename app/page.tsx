@@ -4,16 +4,60 @@ import { Card } from '@/components/ui/card';
 import { Paragraph, SectionTitle } from '@/components/ui/typography';
 import { Typewriter } from '@/components/ui/typewriter';
 import MoodNote from '@/components/mood-note';
+import BirthdayTimer from '@/components/birthday-timer';
 
 export default function HomePage() {
   return (
-    <main className="min-h-screen bg-gradient-to-br from-petal-50 via-white to-petal-100 px-6 py-10 sm:px-10">
+    <main className="relative min-h-screen bg-gradient-to-br from-petal-50 via-white to-petal-100 px-6 py-10 sm:px-10">
+      {/* Site-wide decorative hearts (non-interactive) */}
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        {/** Top band */}
+        <Heart className="heart heart-pulse-1 heart-float-2 text-petal-300 absolute h-4 w-4 responsive-hide-sm" style={{ left: '4%', top: '8%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-1 text-petal-400 absolute h-5 w-5" style={{ left: '14%', top: '6%' }} aria-hidden />
+        <Heart className="heart heart-pulse-3 heart-float-3 text-petal-500 absolute h-6 w-6" style={{ left: '24%', top: '12%' }} aria-hidden />
+        <Heart className="heart heart-pulse-1 heart-float-4 text-petal-400 absolute h-4 w-4" style={{ left: '34%', top: '4%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-2 text-petal-300 absolute h-5 w-5" style={{ left: '46%', top: '10%' }} aria-hidden />
+        <Heart className="heart heart-pulse-3 heart-float-1 text-petal-500 absolute h-6 w-6" style={{ left: '58%', top: '6%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-3 text-petal-400 absolute h-4 w-4 responsive-hide-sm" style={{ left: '70%', top: '14%' }} aria-hidden />
+        <Heart className="heart heart-pulse-1 heart-float-2 text-petal-300 absolute h-5 w-5" style={{ left: '82%', top: '8%' }} aria-hidden />
+
+        {/** Middle band */}
+        <Heart className="heart heart-pulse-3 heart-float-1 text-petal-300 absolute h-4 w-4" style={{ left: '6%', top: '36%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-2 text-petal-400 absolute h-5 w-5" style={{ left: '18%', top: '44%' }} aria-hidden />
+        <Heart className="heart heart-pulse-1 heart-float-3 text-petal-500 absolute h-6 w-6" style={{ left: '30%', top: '40%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-4 text-petal-400 absolute h-4 w-4" style={{ left: '42%', top: '46%' }} aria-hidden />
+        <Heart className="heart heart-pulse-3 heart-float-1 text-petal-300 absolute h-5 w-5" style={{ left: '54%', top: '38%' }} aria-hidden />
+        <Heart className="heart heart-pulse-1 heart-float-2 text-petal-500 absolute h-6 w-6 responsive-hide-sm" style={{ left: '66%', top: '50%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-3 text-petal-400 absolute h-4 w-4" style={{ left: '78%', top: '42%' }} aria-hidden />
+
+        {/** Bottom band */}
+        <Heart className="heart heart-pulse-1 heart-float-1 text-petal-500 absolute h-6 w-6" style={{ left: '8%', top: '72%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-2 text-petal-400 absolute h-5 w-5" style={{ left: '22%', top: '80%' }} aria-hidden />
+        <Heart className="heart heart-pulse-3 heart-float-3 text-petal-300 absolute h-4 w-4 responsive-hide-sm" style={{ left: '36%', top: '74%' }} aria-hidden />
+        <Heart className="heart heart-pulse-1 heart-float-4 text-petal-500 absolute h-5 w-5" style={{ left: '52%', top: '82%' }} aria-hidden />
+        <Heart className="heart heart-pulse-2 heart-float-2 text-petal-400 absolute h-4 w-4" style={{ left: '68%', top: '76%' }} aria-hidden />
+        <Heart className="heart heart-pulse-3 heart-float-1 text-petal-300 absolute h-5 w-5" style={{ left: '84%', top: '78%' }} aria-hidden />
+      </div>
       <div className="mx-auto flex max-w-6xl flex-col gap-10">
         <section className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white/75 p-10 shadow-soft backdrop-blur-xl">
-          <div className="pointer-events-none absolute inset-0 -z-10">
-            <span className="absolute left-10 top-10 h-28 w-28 rounded-full bg-petal-200/80 blur-3xl animate-float" />
+          <div className="pointer-events-none absolute inset-0 z-0">
+            <span className="absolute left-6 top-8 h-28 w-28 rounded-full bg-petal-200/80 blur-3xl animate-float" />
             <span className="absolute right-10 top-24 h-20 w-20 rounded-full bg-petal-100/90 blur-3xl animate-float delay-1000" />
-            <span className="absolute left-1/2 top-32 h-20 w-20 -translate-x-1/2 rounded-full bg-petal-300/70 blur-3xl animate-float delay-2000" />
+            <span className="absolute left-1/2 top-28 h-20 w-20 -translate-x-1/2 rounded-full bg-petal-300/70 blur-3xl animate-float delay-2000" />
+
+            {/* tiny fluttering hearts */}
+            <div className="absolute left-12 top-14 z-0">
+              <Heart className="heart h-5 w-5 text-petal-500 heart-float-1" />
+            </div>
+            <div className="absolute right-20 top-8 z-0">
+              <Heart className="heart h-4 w-4 text-petal-400 heart-float-2" />
+            </div>
+            <div className="absolute left-1/3 top-6 z-0">
+              <Heart className="heart h-6 w-6 text-petal-600 heart-float-3" />
+            </div>
+            <div className="absolute right-8 top-40 z-0">
+              <Heart className="heart h-4 w-4 text-petal-500 heart-float-4" />
+            </div>
           </div>
 
           <div className="absolute right-8 top-8 hidden h-28 w-28 items-center justify-center rounded-full bg-petal-100/80 shadow-soft sm:flex">
@@ -49,6 +93,50 @@ export default function HomePage() {
               <Button variant="secondary" href="/quiz">Take our quiz</Button>
             </div>
           </div>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-2 items-start">
+          <Card>
+            <SectionTitle>Countdown to her birthday</SectionTitle>
+            <div className="mt-4">
+              <BirthdayTimer month={8} day={17} />
+            </div>
+          </Card>
+
+          <Card className="space-y-4">
+            <SectionTitle>A small love letter</SectionTitle>
+            <div className="text-slate-700">
+              <p>
+                My love — each day with you feels like the gentlest kind of home. Your smile brightens small moments and your courage reminds me how lucky I am. On your birthday I’ll make you laugh, hold you close, and remind you how deeply cherished you are.
+              </p>
+              <p className="mt-3 text-sm text-slate-600">Always yours,</p>
+              <p className="text-petal-700 font-semibold">Hafi</p>
+            </div>
+          </Card>
+        </section>
+
+        <section className="grid gap-6 lg:grid-cols-3">
+          <Card className="text-center">
+            <div className="mx-auto mb-4 inline-flex items-center justify-center rounded-full bg-petal-100 p-4">
+              <Flower2 className="h-6 w-6 text-petal-700" />
+            </div>
+            <h3 className="text-lg font-semibold text-slate-900">Warmth</h3>
+            <Paragraph className="mt-2 text-slate-700">Warm drinks, heat packs, and gentle cuddles whenever you need them.</Paragraph>
+          </Card>
+          <Card className="text-center">
+            <div className="mx-auto mb-4 inline-flex items-center justify-center rounded-full bg-petal-100 p-4">
+              <Sparkles className="h-6 w-6 text-petal-700" />
+            </div>
+            <h3 className="text-lg font-semibold text-slate-900">Listening</h3>
+            <Paragraph className="mt-2 text-slate-700">I’ll listen with patience, no judgment — just care and understanding.</Paragraph>
+          </Card>
+          <Card className="text-center">
+            <div className="mx-auto mb-4 inline-flex items-center justify-center rounded-full bg-petal-100 p-4">
+              <Heart className="h-6 w-6 text-petal-700" />
+            </div>
+            <h3 className="text-lg font-semibold text-slate-900">Cozy nights</h3>
+            <Paragraph className="mt-2 text-slate-700">Soft blankets, your favorite show, and warm company to help you unwind.</Paragraph>
+          </Card>
         </section>
 
         <section id="breath" className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr]">
